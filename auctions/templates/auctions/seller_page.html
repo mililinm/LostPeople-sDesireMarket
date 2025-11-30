@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="text-light mb-4">
+    {{ seller.username }} さんの出品一覧
+</h2>
+
+<div class="row">
+    {% for item in items %}
+    <div class="col-md-4 mb-4">
+        <div class="card bg-dark text-light" style="border: 1px solid #444;">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" class="card-img-top" alt="">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ item.name }}</h5>
+                <p class="card-text">{{ item.description|truncatechars:70 }}</p>
+                <a href="{% url 'auctions:item_detail' item.id %}"
+                   class="btn btn-sm btn-outline-light">
+                    詳細を見る
+                </a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>このユーザーの出品はありません。</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

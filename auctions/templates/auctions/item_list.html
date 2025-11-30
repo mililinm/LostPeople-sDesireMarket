@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-light">オークション商品</h2>
+
+  <div class="row">
+    {% for item in items %}
+    <div class="col-md-3 mt-3">
+      <div class="card bg-dark text-light {% if item.ended %}ended-item{% endif %}">
+        {% if item.image %}
+        <img src="{{ item.image.url }}" class="card-img-top {% if item.ended %}ended-img{% endif %}" alt="">
+        {% endif %}
+
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ item.name }}
+            {% if item.ended %}<span class="badge bg-secondary">終了</span>{% endif %}
+          </h5>
+
+          <p class="card-text">{{ item.description|truncatewords:15 }}</p>
+          <p>現在価格: {{ item.current_price }}円</p>
+
+          <a href="{% url 'auctions:item_detail' item.id %}" class="btn btn-outline-warning btn-sm">詳細</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

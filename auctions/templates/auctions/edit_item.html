@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 style="color:#e8dcca; text-align:center;">商品を編集</h2>
+
+<form method="post" enctype="multipart/form-data" style="max-width:600px; margin:20px auto;">
+  {% csrf_token %}
+  <label>商品名: <input type="text" name="name" value="{{ item.name }}" required></label><br><br>
+  <label>説明: <textarea name="description">{{ item.description }}</textarea></label><br><br>
+  <label>開始価格: <input type="number" name="starting_price" value="{{ item.starting_price }}" required></label><br><br>
+  <label>終了日時: <input type="datetime-local" name="end_time" value="{{ item.end_time|date:"Y-m-d\TH:i" }}" required></label><br><br>
+  <label>画像: <input type="file" name="image"></label><br><br>
+  <button type="submit" style="padding:8px 20px; background-color:#4d79ff; color:white; border:none; border-radius:5px;">更新する</button>
+</form>
+{% endblock %}

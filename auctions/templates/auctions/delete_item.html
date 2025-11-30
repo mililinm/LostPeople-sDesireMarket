@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 style="color:#e8dcca; text-align:center;">本当に削除しますか？</h2>
+<p style="text-align:center;">{{ item.name }} を削除します。</p>
+
+<form method="post" style="text-align:center;">
+  {% csrf_token %}
+  <button type="submit" style="padding:8px 20px; background-color:#ff4d4d; color:white; border:none; border-radius:5px; margin-right:10px;">削除する</button>
+  <a href="{% url 'accounts:mypage' %}" style="padding:8px 20px; background-color:#555; color:white; border-radius:5px; text-decoration:none;">キャンセル</a>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-light">出品</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input class="form-control mt-2" name="name" placeholder="商品名" required>
+    <textarea class="form-control mt-2" name="description" placeholder="説明"></textarea>
+    <input class="form-control mt-2" name="starting_price" type="number" placeholder="開始価格" required>
+    <input class="form-control mt-2" name="end_time" type="datetime-local" required>
+    <input class="form-control mt-2" name="image" type="file">
+    <button class="btn btn-warning mt-3">出品する</button>
+  </form>
+</div>
+{% endblock %}

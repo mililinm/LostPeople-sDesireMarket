@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      {% if item.image %}
+        <img src="{{ item.image.url }}" class="img-fluid" alt="">
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-light">{{ item.name }}</h2>
+      <p class="item-description">{{ item.description }}</p>
+      <p>開始価格: {{ item.starting_price }}円</p>
+      <p>現在価格: <strong>{{ item.current_price }}円</strong></p>
+
+      <a href="{% url 'auctions:seller_page' item.seller.id %}" class="btn btn-secondary mb-3">
+        出品者：{{ item.seller }}
+      </a>
+
+
+      <form method="post">
+        {% csrf_token %}
+        <input type="number" name="bid_amount" min="{{ item.current_price|add:1 }}" class="form-control" required>
+        <button class="btn btn-danger mt-2">入札する</button>
+      </form>
+    </div>
+  </div>
+
+  <hr class="bg-secondary">
+  <h4 class="text-light">入札ログ</h4>
+  <div>
+    {% if b.message %}
+      <div class="text-danger">「{{ b.message }}」</div>
+    {% endif %}
+
+    {% if b.comment %}
+      <div class="text-info">「{{ b.comment }}」</div>
+    {% endif %}
+
+    {% for b in bids %}
+      <div class="p-2 mb-2 bg-dark text-light border rounded">
+        <div><strong>{{ b.bidder }}</strong> <small class="text-muted">（{{ b.created_at|date:"Y/m/d H:i" }}）</small></div>
+        <div>💰 {{ b.amount }}円</div>
+        {% if b.message %}<div class="text-danger">「{{ b.message }}」</div>{% endif %}
+      </div>
+    {% empty %}
+      <p class="text-muted">まだ入札がありません。</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

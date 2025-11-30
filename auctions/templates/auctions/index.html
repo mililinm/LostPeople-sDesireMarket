@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block bodyclass %}index-page{% endblock %}
+{% block content %}
+{% load static %}
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="{% static 'auctions/video/backstreet.mp4' %}" type="video/mp4">
+</video>
+<div class="fog"></div>
+<div class="noise"></div>
+
+<div class="text-center index-hero">
+  <h1 class="main-title neon-title">LOST PEOPLE'S DESIRE MARKET</h1>
+
+  <p class="index-subtitle">
+      迷い込んだ者の欲望が、静かに値札をつけられる場所。
+  </p>
+
+  <a class="btn-enter neon-btn" href="{% url 'accounts:login' %}">ENTER (Login)</a>
+  <a class="btn-enter neon-btn" href="{% url 'accounts:register' %}">REGISTER</a>
+</div>
+
+{% endblock %}

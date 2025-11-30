@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="auth-container">
+
+    <h2 class="auth-title">REGISTER</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="auth-form">
+        {% csrf_token %}
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Email (optional)</label>
+        <input type="email" name="email">
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button type="submit" class="auth-btn">CREATE ACCOUNT</button>
+    </form>
+
+    <p class="auth-link">
+        Already have an account? <a href="{% url 'accounts:login' %}">Login</a>
+    </p>
+</div>
+{% endblock %}

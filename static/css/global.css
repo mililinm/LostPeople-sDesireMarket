@@ -1,0 +1,264 @@
+/* ----------------------------------
+   DARK MARKET / THE SHOEMAN STYLE
+   全体テーマ
+---------------------------------- */
+
+body {
+    background: #0a0a0c;
+    color: #e0e0e0;
+    font-family: 'OCR A Std', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------------
+   グローバルナビ（闇市っぽいネオン）
+---------------------------------- */
+
+.navbar {
+    background: #0c0c12;
+    padding: 15px 25px;
+    border-bottom: 1px solid #222;
+    box-shadow: 0 0 15px rgba(120, 0, 255, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #c88cff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    text-shadow: 0 0 8px #6f00ff;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 12px #8d2bff;
+}
+
+/* ナビバーの長さ調整 */
+.navbar-custom {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    height: 42px;   
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand,
+.navbar-nav .nav-item a {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.1;
+}
+
+
+/* ----------------------------------
+   コンテナ
+---------------------------------- */
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ----------------------------------
+   見出し
+---------------------------------- */
+
+h1, h2, h3 {
+    color: #ba68ff;
+    text-shadow: 0 0 12px #7a00ff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* ----------------------------------
+   カード（一覧や詳細で使用）
+---------------------------------- */
+
+.card {
+    background: rgba(20, 20, 26, 0.9);
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    transition: .3s;
+    box-shadow: 0 0 15px rgba(120, 0, 255, 0.15);
+}
+
+.card:hover {
+    border-color: #6f00ff;
+    box-shadow: 0 0 18px rgba(120, 0, 255, 0.4);
+}
+
+/* ----------------------------------
+   ボタン（ネオン紫）
+---------------------------------- */
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #6f00ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: .2s;
+    box-shadow: 0 0 12px rgba(111, 0, 255, 0.5);
+}
+
+.btn:hover {
+    background: #952bff;
+    box-shadow: 0 0 16px rgba(111, 0, 255, 0.7);
+}
+
+/* ----------------------------------
+   フォーム
+---------------------------------- */
+
+input, textarea, select {
+    background: #14141a;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    padding: 8px;
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #6f00ff;
+    box-shadow: 0 0 10px rgba(111, 0, 255, 0.5);
+}
+
+/* ----------------------------------
+   商品一覧グリッド
+---------------------------------- */
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.item-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 12px rgba(120, 0, 255, 0.35);
+}
+
+/* ----------------------------------
+   テーブル（マイページの出品一覧）
+---------------------------------- */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border-bottom: 1px solid #222;
+}
+
+.table th {
+    color: #c88cff;
+    text-shadow: 0 0 8px #7a00ff;
+}
+
+.table tr:hover {
+    background: rgba(90, 0, 150, 0.3);
+}
+
+.ended-item {
+    opacity: 0.45;
+    filter: grayscale(85%);
+}
+
+.ended-img {
+    opacity: 0.6;
+}
+
+/* 商品説明のカラー */
+.item-description {
+    color: #f2e5ff;
+    text-shadow: 0 0 6px #7a00ff;
+}
+
+.bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+
+/* ====== index.html ====== */
+
+.index-hero {
+    padding-top: 160px;
+    text-align: center;
+}
+
+/* タイトル */
+.neon-title {
+    color: #d6b4ff;
+    font-size: 48px;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 10px rgba(150, 0, 255, 0.7),
+        0 0 25px rgba(180, 0, 255, 0.5),
+        0 0 45px rgba(110, 0, 255, 0.6);
+}
+
+/* サブタイトル */
+.index-subtitle {
+    color: #e8dfff;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    text-shadow: 0 0 6px rgba(150, 0, 255, 0.5);
+}
+
+/* NEON BUTTON（ENTER / REGISTER） */
+.neon-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 40px;
+
+    background: rgba(90, 0, 150, 0.35);
+    border: 1px solid #a960ff;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 8px;
+
+    transition: .25s;
+    text-shadow: 0 0 8px rgba(180, 120, 255, 0.8);
+    box-shadow: 0 0 16px rgba(130, 50, 255, 0.5);
+}
+
+.neon-btn:hover {
+    background: rgba(150, 0, 255, 0.6);
+    box-shadow: 0 0 28px rgba(170, 0, 255, 1);
+    transform: scale(1.07);
+}
